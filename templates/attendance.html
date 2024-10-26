@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Attendance Records</title>
+</head>
+<body>
+    <h1>Attendance Records</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for record in records %}
+        <tr>
+            <td>{{ record.split(',')[0] }}</td>
+            <td>{{ record.split(',')[1].strip() }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="back-link">
+        <a href="/">Go Back</a>
+    </div>
+</body>
+</html>
